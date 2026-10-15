@@ -4,10 +4,10 @@ import java.time.LocalDate;
 
 public class Producto {
 
-    private String codigo;
-    private String nombre;
-    private LocalDate fechaCaducidad;
-    private CategoriaProducto categoria;
+    private final String codigo;
+    private final String nombre;
+    private final LocalDate fechaCaducidad;
+    private final CategoriaProducto categoria;
 
     private Producto(Builder builder) {
         this.codigo = builder.codigo;
