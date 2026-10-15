@@ -16,6 +16,23 @@ public class App {
                 .setCategoria(CategoriaProducto.BEBIDA)
                 .build();
 
+        MonederoDineroFisico monedero = new MonederoDineroFisico(1000);
+        InventarioLocal inventario = new InventarioLocal();
+
+        MaquinaDespachadora maquinaFacultadIngenieria = MaquinaDespachadoraImpl.Builder
+                .newBuilder()
+                .setMonedero(monedero)
+                .setInventario(inventario)
+                .build();
+
+        maquinaFacultadIngenieria.registrarProducto(new RegistroProductoDTO(
+                nuevoProducto.getCodigo(),
+                nuevoProducto.getNombre(),
+                nuevoProducto.getFechaCaducidad(),
+                nuevoProducto.getCategoria(),
+                20.0
+        ));
+
         System.out.println("CODIGO PRODUCTO => " + nuevoProducto.getCodigo());
     }
 }
